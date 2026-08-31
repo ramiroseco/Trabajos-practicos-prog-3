@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eaeaea;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #004f87;
+    padding: 15px;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}
+
+header p {
+    color: white;
+    margin: 5px 0 15px 0;
+    display: block;
+}
+
+.container-fluid {
+    background-color: #7cc7e8;
+    padding: 10px;
+}
+
+.navbar,
+.bg-body-tertiary {
+    background-color: #7cc7e8 !important;
+}
+
+.navbar a {
+    color: #00385f;
+}
+
+main {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+}
+
+section {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #004f87;
+}
+
+section h2 {
+    background-color: #d9edf7;
+    padding: 8px;
+}
+
+article {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dddddd;
+    overflow: auto;
+}
+
+article h3 {
+    background-color: #9b111e;
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 12px -10px;
+}
+
+.imagen-carrusel {
+    width: 40%;
+    max-width: 400px;
+    height: 220px;
+    border: 1px solid #777777;
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.imagen-carrusel img {
+    width: 100%;
+    height: 218px;
+    object-fit: cover;
+}
+
+.carousel {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid #999999;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+th {
+    background-color: #d9edf7;
+}
+
+form {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #cccccc;
+}
+
+fieldset {
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+input, select, textarea, button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    max-width: 100%;
+}
+
+textarea {
+    width: 100%;
+}
+
+button {
+    background-color: #004f87;
+    color: white;
+    border: 1px solid #00385f;
+    padding: 7px 12px;
+}
+
+button:hover {
+    background-color: #176fa8;
+}
+
+footer {
+    background-color: #004f87;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    section {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .navbar-brand img {
+        width: 150px;
+        height: auto;
+    }
+
+    .imagen-carrusel {
+        width: 100%;
+        height: 200px;
+        float: none;
+        margin-left: 0;
+    }
+
+    .imagen-carrusel img {
+        height: 198px;
+    }
+
+    table {
+        font-size: 11px;
+    }
+
+    th, td {
+        padding: 5px 3px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    fieldset {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    article h3 {
+        font-size: 19px;
+    }
+
+    table {
+        font-size: 9px;
+    }
+
+    th, td {
+        padding: 4px 2px;
+    }
+
+    button {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}

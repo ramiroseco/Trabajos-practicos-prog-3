@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Deportes Unca - Inscripción</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Deportes Unca</h1>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+
+        <img src="../imagenes/logo%20unca%202023-01.png" alt="Logo" width="200" height="95" class="d-inline-block align-text-top">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="pagina1.html">Inicio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pagina1.html" >Actividades Deportivas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="inscripciones.html" >Mis inscripciones</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Inscripción a Actividad Deportiva</h2>
+            
+            <form action="inscripciones.html" method="post">
+                <fieldset>
+                    <legend>1. Información de la actividad</legend>
+                    
+                    <p>
+                        <label for="actividad">Actividad:</label>
+                        <input type="text" id="actividad" name="actividad" value="Fútbol" disabled>
+                    </p>
+                    <p>
+                        <label for="lugar">Lugar:</label>
+                        <input type="text" id="lugar" name="lugar" value="Cancha techada" disabled>
+                    </p>
+                    <p>
+                        <label for="dia">Día:</label>
+                        <input type="text" id="dia" name="dia" value="Martes y jueves" disabled>
+                    </p>
+                    <p>
+                        <label for="horario">Horario:</label>
+                        <input type="text" id="horario" name="horario" value="18:00-19:30" disabled>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>2. Datos del participante</legend>
+                    
+                    <p>
+                        <label for="nombre">Apellido y nombre:</label>
+                        <input type="text" id="nombre" name="nombre" maxlength="100" required>
+                    </p>
+                    <p>
+                        <label for="dni">DNI:</label>
+                        <input type="text" id="dni" name="dni" maxlength="8" pattern="[0-9]*" inputmode="numeric" placeholder="Ej:30123123" required>
+                    </p>
+                    <p>
+                        <label for="fnac">Fecha de nacimiento:</label>
+                        <input type="date" id="fnac" name="fnac">
+                    </p>
+                    <p>
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email">
+                    </p>
+                    <p>
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3834123456" maxlength="10">
+                    </p>
+                    <p>
+                        Sexo:
+                        <input type="radio" id="sexo_f" name="sexo" value="Femenino">
+                        <label for="sexo_f">Femenino</label>
+                        
+                        <input type="radio" id="sexo_m" name="sexo" value="Masculino">
+                        <label for="sexo_m">Masculino</label>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>3. Información deportiva</legend>
+                    
+                    <p>
+                        <label for="nivel">Nivel:</label>
+                        <select id="nivel" name="nivel">
+                            <option value="inicial">Inicial</option>
+                            <option value="intermedio">Intermedio</option>
+                            <option value="avanzado">Avanzado</option>
+                        </select>
+                    </p>
+                    
+                    <p>
+                        ¿Posee experiencia previa?:
+                        <input type="radio" id="exp_si" name="experiencia" value="Si">
+                        <label for="exp_si">Sí</label>
+                        
+                        <input type="radio" id="exp_no" name="experiencia" value="No">
+                        <label for="exp_no">No</label>
+                    </p>
+                    
+                    <p>
+                        <label for="observaciones">Observaciones:</label><br>
+                        <textarea id="observaciones" name="observaciones" rows="4" cols="40"></textarea>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>4. Aceptación de condiciones</legend>
+                    <p>
+                        <input type="checkbox" id="condiciones" name="condiciones" required>
+                        <label for="condiciones">Acepto las condiciones de inscripción.</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Aceptar</button>
+                    <button type="reset">Cancelar</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Deportes Unca - 2026</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
