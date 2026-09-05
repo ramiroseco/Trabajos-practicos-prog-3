@@ -73,12 +73,15 @@
                     </p>
                     <p>
                         <label for="dni">DNI:</label>
-                        <input type="text" id="dni" name="dni" maxlength="8" pattern="[0-9]*" inputmode="numeric" placeholder="Ej:30123123" required>
+                        <input type="text" id="dni" name="dni" placeholder="Ej:30123123" required>
                     </p>
-                    <p>
+
+                    <p >
                         <label for="fnac">Fecha de nacimiento:</label>
-                        <input type="date" id="fnac" name="fnac">
+                        <input type="date" id="fnac" name="fnac" required>
+                        <p id="pfnac"></p>
                     </p>
+
                     <p>
                         <label for="email">Correo electrónico:</label>
                         <input type="email" id="email" name="email">
@@ -133,7 +136,7 @@
                 </fieldset>
 
                 <p>
-                    <button type="submit">Aceptar</button>
+                    <button type="submit" onclick="validarfnac()">Aceptar</button>
                     <button type="reset">Cancelar</button>
                 </p>
             </form>
