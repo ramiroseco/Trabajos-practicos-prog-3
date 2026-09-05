@@ -16,4 +16,20 @@ function validarfnac(){
 
 }
 
+// Ejercicio 2
+
+function verificarDni(){
+
+    let dniusuario = document.getElementById("dni");
+
+    if (dniusuario.value){
+        let text;
+        let longituddni = 8;
+        if(dniusuario.value.length < longituddni){
+            text = "El DNI debe contener 8 dígitos"
+            document.getElementById("pdni").innerHTML = text;
+        }
+
+    }
+}
 
