@@ -61,13 +61,21 @@ class SistemaDeportes{
         }
 
         agregarActividades = function(nuevasActividades){
-            actividades.push(nuevasActividades);
+            this.actividades.push(nuevasActividades);
         }
+
         listarActividades = function(){
 
+            for (let i=0; i<this.actividades.length; i++){
+                const actividad = this.actividades[i];
+                console.log(actividad);
+            }
         }
 
 }
 
 let SistemaDeportes1 = new SistemaDeportes([Futbol,Basquet,Voley,Atletismo]);
-console.log(SistemaDeportes1.actividades.length);
+
+
+//Ejercicio 4
+
