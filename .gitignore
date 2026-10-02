@@ -1,1 +1,18 @@
+# Python
+__pycache__/
+*.py[codt]
+*.log
+
+# Entornos virtuales
+venv
+.venv
+
+# Configuración sensible
+.env
+secret.key
+
+# PyCharm
 .idea/
+
+# Base de datos de Django
+db.sqlite3
