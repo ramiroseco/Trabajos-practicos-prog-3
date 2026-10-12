@@ -1,0 +1,100 @@
+Operaciones ORM
+
+1)
+
+>>> actividad1 = ActividadDeportiva(nombre="Fútbol 5", descripcion="Actividad deportiva de fútbol", lugar="Cancha 1", cupo=10) 
+>>> actividad1.save()
+>>> actividad2 = ActividadDeportiva(nombre="Basquet", descripcion="Actividad deportiva de Basquet", lugar="Cancha 2", cupo=30)
+>>> actividad2.save()
+>>> actividad3 = ActividadDeportiva(nombre="Voley", descripcion="Actividad deportiva de Voley", lugar="Cancha 3", cupo=20)    
+>>> actividad3.save()
+
+
+2)
+
+>>> HorarioFutbol = Horario(actividad=actividad1, dia="lunes", hora_inicio="18:00", hora_fin="19:00")
+>>> HorarioFutbol.save()
+>>> Horario2Futbol = Horario(actividad=actividad1, dia="jueves", hora_inicio="18:00", hora_fin="19:00")
+>>> Horario2Futbol.save()
+
+3)
+
+>>> Inscripcion1 = Inscripcion(nombre="Juan", apellido="Pérez", dni="30111222", horario=HorarioFutbol) 
+>>> Inscripcion1.save()
+>>> Inscripcion2 = Inscripcion(nombre="Pedro", apellido="Gómez", dni="31222333", horario=HorarioFutbol)
+>>> Inscripcion2.save()
+>>> Inscripcion3 = Inscripcion(nombre="Fulano", apellido="Ruiz", dni="32333444", horario=Horario2Futbol)
+>>> Inscripcion3.save()
+
+4)
+
+>>> actividades = ActividadDeportiva.objects.all()
+>>> for actividad in actividades: print(actividad)
+... 
+Fútbol 5
+Basquet
+Voley
+
+5)
+
+>>> actividad = ActividadDeportiva.objects.get(nombre="Fútbol 5")
+>>> horarios = Horario.objects.filter(actividad=actividad)
+>>> for horario in horarios: print(horario)
+... 
+Fútbol 5 - Lunes 18:00:00-19:00:00
+Fútbol 5 - Jueves 18:00:00-19:00:00
+>>> 
+
+6) 
+
+>>> activas = Inscripcion.objects.filter(estado="Activa")
+>>> for inscripcion in activas: print(inscripcion)
+... 
+Pérez, Juan (Activa)
+Gómez, Pedro (Activa)
+Ruiz, Fulano (Activa)
+>>> 
+
+7)
+
+>>> horario = Horario.objects.get(id=1)
+>>> for inscripcion in Inscripcion.objects.filter(horario=horario): print(inscripcion)
+... 
+Pérez, Juan (Activa)
+Gómez, Pedro (Activa)
+>>> 
+
+8)
+
+>>> actividad = ActividadDeportiva.objects.get(nombre="Fútbol 5")
+>>> print(actividad.cupo)
+10
+>>> actividad.cupo = 15
+>>> actividad.save()
+>>> ActividadDeportiva.objects.get(nombre="Fútbol 5").cupo
+15
+
+9) 
+
+>>> inscripcion = Inscripcion.objects.get(dni="31222333")
+>>> print(inscripcion, inscripcion.estado)
+Gómez, Pedro (Activa) Activa
+>>> inscripcion.estado = "Cancelada"
+>>> inscripcion.save()
+>>> Inscripcion.objects.get(dni="31222333").estado
+'Cancelada'
+
+10)
+
+>>> inscripcion = Inscripcion.objects.get(dni="32333444")
+>>> print(inscripcion)
+Ruiz, Fulano (Activa)
+>>> inscripcion.delete()
+(1, {'reservas.Inscripcion': 1})
+>>> Inscripcion.objects.count()
+2
+>>> Inscripcion.objects.filter(dni="32333444").exists()
+False
+
+
+
