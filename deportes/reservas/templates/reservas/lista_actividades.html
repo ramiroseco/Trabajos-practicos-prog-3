@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actividades deportivas</title>
+</head>
+<body>
+  <header>
+    <h1>Actividades deportivas</h1>
+    <nav>
+      <a href="{% url 'reservas:agregar_actividad' %}">Agregar actividad</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if actividades %}
+      <table>
+        <caption>Actividades registradas</caption>
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Cupo</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for actividad in actividades %}
+            <tr>
+              <td>{{ actividad.nombre }}</td>
+              <td>{{ actividad.descripcion }}</td>
+              <td>{{ actividad.lugar }}</td>
+              <td>{{ actividad.cupo }}</td>
+              <td><a href="{% url 'reservas:detalle_actividad' actividad.pk %}">Ver detalle</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No hay actividades registradas todavía.</p>
+    {% endif %}
+  </main>
+</body>
+</html>

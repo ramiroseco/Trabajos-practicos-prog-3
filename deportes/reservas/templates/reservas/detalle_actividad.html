@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ actividad.nombre }}</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'reservas:lista_actividades' %}">Volver al listado</a>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h1>{{ actividad.nombre }}</h1>
+
+      <section>
+        <h2>Datos de la actividad</h2>
+        <dl>
+          <dt>Descripción</dt>
+          <dd>{{ actividad.descripcion }}</dd>
+
+          <dt>Lugar</dt>
+          <dd>{{ actividad.lugar }}</dd>
+
+          <dt>Cupo</dt>
+          <dd>{{ actividad.cupo }}</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Horarios</h2>
+        {% with horarios=actividad.horarios.all %}
+          {% if horarios %}
+            <ul>
+              {% for horario in horarios %}
+                <li>
+                  {{ horario.get_dia_display }}:
+                  {{ horario.hora_inicio|time:"H:i" }} a {{ horario.hora_fin|time:"H:i" }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>Esta actividad todavía no tiene horarios cargados.</p>
+          {% endif %}
+        {% endwith %}
+      </section>
+    </article>
+  </main>
+</body>
+</html>

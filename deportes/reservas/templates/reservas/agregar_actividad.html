@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agregar actividad</title>
+</head>
+<body>
+  <header>
+    <h1>Agregar actividad deportiva</h1>
+    <nav>
+      <a href="{% url 'reservas:lista_actividades' %}">Ver todas las actividades</a>
+    </nav>
+  </header>
+
+  <main>
+    {% if messages %}
+      <ul class="mensajes">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <form method="post" action="{% url 'reservas:agregar_actividad' %}">
+      {% csrf_token %}
+
+      <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ datos.nombre }}" required>
+      </p>
+      <p>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion">{{ datos.descripcion }}</textarea>
+      </p>
+      <p>
+        <label for="lugar">Lugar:</label>
+        <input type="text" id="lugar" name="lugar" value="{{ datos.lugar }}" required>
+      </p>
+      <p>
+        <label for="cupo">Cupo:</label>
+        <input type="number" id="cupo" name="cupo" min="1" value="{{ datos.cupo }}" required>
+      </p>
+
+      <button type="submit">Guardar actividad</button>
+    </form>
+  </main>
+</body>
+</html>
